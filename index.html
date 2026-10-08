@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Jalan - PT LG ELEKTRONIK SERVICE INDONESIA</title>
+    <style>
+        :root {
+            --lg-red: #A50034;
+            --lg-dark-gray: #333333;
+            --lg-light-gray: #f4f5f7;
+            --lg-border: #cccccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        /* Controls / Action Bar */
+        .action-bar {
+            width: 210mm;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .action-bar h2 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--lg-red);
+        }
+
+        .btn {
+            background-color: var(--lg-red);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background-color: #800028;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Header Layout */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--lg-red);
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--lg-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+
+        .company-details h1 {
+            font-size: 18px;
+            margin: 0;
+            color: var(--lg-red);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .company-details p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            color: #555;
+            line-height: 1.3;
+        }
+
+        .doc-title-box {
+            text-align: right;
+        }
+
+        .doc-title-box h2 {
+            margin: 0;
+            font-size: 22px;
+            color: var(--lg-dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .doc-title-box p {
+            margin: 2px 0 0 0;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--lg-red);
+        }
+
+        /* Form Inputs General Styling */
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 4px 6px;
+            border: 1px solid var(--lg-border);
+            border-radius: 3px;
+            font-size: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus, textarea:focus, select:focus {
+            border-color: var(--lg-red);
+            background-color: #fffdfd;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Top Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .info-card {
+            border: 1px solid var(--lg-border);
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .info-card-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--lg-red);
+            text-transform: uppercase;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .form-row label {
+            width: 110px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #444;
+            flex-shrink: 0;
+        }
+
+        .form-row .input-container {
+            flex-grow: 1;
+        }
+
+        /* Delivery Meta Grid */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            background: var(--lg-light-gray);
+            padding: 8px 10px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-item label {
+            font-size: 10px;
+            font-weight: bold;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        /* Table Styling */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        .items-table th {
+            background-color: var(--lg-red);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 6px 8px;
+            text-align: left;
+            border: 1px solid var(--lg-red);
+        }
+
+        .items-table td {
+            border: 1px solid var(--lg-border);
+            padding: 4px;
+            vertical-align: middle;
+        }
+
+        .items-table input {
+            border: 1px solid transparent;
+            background: transparent;
+        }
+
+        .items-table input:hover, .items-table input:focus {
+            border: 1px solid var(--lg-border);
+            background: white;
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+
+        .btn-add-row {
+            margin-bottom: 15px;
+            font-size: 11px;
+            padding: 4px 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn-add-row:hover {
+            background: #218838;
+        }
+
+        .btn-del-row {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            width: 20px;
+            height: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* Additional Notes */
+        .notes-section {
+            margin-bottom: 20px;
+        }
+
+        .notes-section label {
+            font-size: 11px;
+            font-weight: bold;
+            color: #444;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Signatures Section */
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .sig-box {
+            border: 1px solid var(--lg-border);
+            border-radius: 4px;
+            padding: 8px 5px;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 120px;
+        }
+
+        .sig-title {
+            font-size: 10px;
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .sig-space {
+            flex-grow: 1;
+        }
+
+        .sig-name-input {
+            text-align: center;
+            font-weight: bold;
+            border: none;
+            border-bottom: 1px dashed #999 !important;
+            background: transparent;
+            border-radius: 0;
+            padding: 2px;
+            font-size: 11px;
+        }
+
+        /* Terms & Footer */
+        .footer-terms {
+            margin-top: 25px;
+            border-top: 1px solid #ddd;
+            padding-top: 8px;
+            font-size: 9px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .footer-terms ol {
+            margin: 3px 0 0 15px;
+            padding: 0;
+        }
+
+        /* PRINT STYLESHEET */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .action-bar, .btn-add-row, .btn-del-row, .col-action {
+                display: none !important;
+            }
+
+            .page {
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                min-height: auto;
+            }
+
+            input[type="text"], input[type="date"], textarea, select {
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                appearance: none;
+                -webkit-appearance: none;
+            }
+
+            .info-card, .meta-grid, .sig-box {
+                background: transparent !important;
+            }
+
+            .items-table th {
+                background-color: var(--lg-red) !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .sig-name-input {
+                border-bottom: 1px solid #333 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Action Bar / Buttons -->
+    <div class="action-bar">
+        <h2>Format Formulir Surat Jalan PT LG ELEKTRONIK SERVICE INDONESIA</h2>
+        <div>
+            <button class="btn btn-secondary" onclick="resetForm()">Reset Form</button>
+            <button class="btn" onclick="window.print()">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                    <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+                </svg>
+                Cetak / Simpan PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Printable Page -->
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-circle">LG</div>
+                <div class="company-details">
+                    <h1>PT LG ELEKTRONIK SERVICE INDONESIA</h1>
+                    <p>Gedung LG Electronics Service Center, Jl. Tabing No.16, Kemayoran, Jakarta Pusat 10610</p>
+                    <p>Telp: (021) 14010 | WhatsApp: 0811-8814-010 | Email: cic.indonesia@lge.com</p>
+                </div>
+            </div>
+            <div class="doc-title-box">
+                <h2>SURAT JALAN</h2>
+                <p>DELIVERY ORDER</p>
+            </div>
+        </div>
+
+        <!-- Meta Info Grid (Nomor, Tanggal, WO) -->
+        <div class="meta-grid">
+            <div class="meta-item">
+                <label>No. Surat Jalan</label>
+                <input type="text" value="SJ/LGESI/2026/10/001" placeholder="SJ/LGESI/YYYY/MM/XXX">
+            </div>
+            <div class="meta-item">
+                <label>Tanggal Pengiriman</label>
+                <input type="date" id="delivery-date">
+            </div>
+            <div class="meta-item">
+                <label>No. Work Order (WO)</label>
+                <input type="text" placeholder="WO-XXXXXXXX">
+            </div>
+            <div class="meta-item">
+                <label>No. PO / Reference</label>
+                <input type="text" placeholder="PO-XXXXXXXX">
+            </div>
+        </div>
+
+        <!-- Info Grid (Pengirim & Penerima) -->
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-title">PENGIRIM (ORIGIN / WAREHOUSE)</div>
+                <div class="form-row">
+                    <label>Gudang / Cabang:</label>
+                    <div class="input-container">
+                        <input type="text" value="Central Parts Warehouse - Jakarta">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Alamat:</label>
+                    <div class="input-container">
+                        <input type="text" value="Jl. Tabing No. 16, Kemayoran">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Petugas / PIC:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="Nama Petugas Gudang">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Telepon / Ext:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="021-XXXXXXX">
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">PENERIMA (DESTINATION / CUSTOMER)</div>
+                <div class="form-row">
+                    <label>Nama / Instansi:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="Nama Penerima / Authorized Service Center">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Alamat Tujuan:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="Alamat lengkap penerima">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Kontak / No. HP:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="08xxxxxxxxxx">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Kategori Unit:</label>
+                    <div class="input-container">
+                        <select>
+                            <option>Spare Part / Component</option>
+                            <option>Finished Goods / Unit Elektronik</option>
+                            <option>Unit Service / Perbaikan</option>
+                            <option>Return / Defective Items</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transport Info -->
+        <div class="info-card" style="margin-bottom: 15px;">
+            <div class="info-card-title">INFORMASI EKSPEDISI / TRUCK DETAILS</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                <div class="form-row">
+                    <label style="width: 80px;">Ekspedisi:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="Internal / Kurir / JNE / dll">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label style="width: 80px;">Nama Supir:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="Nama Pengemudi">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label style="width: 80px;">No. Polisi:</label>
+                    <div class="input-container">
+                        <input type="text" placeholder="B 1234 XXX">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table of Items -->
+        <table class="items-table" id="itemsTable">
+            <thead>
+                <tr>
+                    <th style="width: 35px;" class="text-center">No</th>
+                    <th style="width: 130px;">Kode Barang / Part No</th>
+                    <th>Deskripsi / Nama Barang / Model</th>
+                    <th style="width: 150px;">Serial Number (S/N)</th>
+                    <th style="width: 60px;" class="text-center">Qty</th>
+                    <th style="width: 60px;" class="text-center">Satuan</th>
+                    <th style="width: 120px;">Keterangan</th>
+                    <th style="width: 30px;" class="col-action"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center row-num">1</td>
+                    <td><input type="text" placeholder="EBR83523101"></td>
+                    <td><input type="text" placeholder="Main PCB Board Assembly - Refrigerator"></td>
+                    <td><input type="text" placeholder="SN-2026100801"></td>
+                    <td><input type="text" class="text-center" value="1"></td>
+                    <td><input type="text" class="text-center" value="Pcs"></td>
+                    <td><input type="text" value="New Sparepart"></td>
+                    <td class="col-action text-center"><button class="btn-del-row" onclick="deleteRow(this)">×</button></td>
+                </tr>
+                <tr>
+                    <td class="text-center row-num">2</td>
+                    <td><input type="text" placeholder="EAU63103202"></td>
+                    <td><input type="text" placeholder="BLDC Fan Motor AC Dual Inverter"></td>
+                    <td><input type="text" placeholder="SN-2026100802"></td>
+                    <td><input type="text" class="text-center" value="2"></td>
+                    <td><input type="text" class="text-center" value="Pcs"></td>
+                    <td><input type="text" value="New Sparepart"></td>
+                    <td class="col-action text-center"><button class="btn-del-row" onclick="deleteRow(this)">×</button></td>
+                </tr>
+                <tr>
+                    <td class="text-center row-num">3</td>
+                    <td><input type="text" placeholder="OLED55C3PSA"></td>
+                    <td><input type="text" placeholder="LG OLED TV 55 Inch C3 Series"></td>
+                    <td><input type="text" placeholder="403RMKP9X123"></td>
+                    <td><input type="text" class="text-center" value="1"></td>
+                    <td><input type="text" class="text-center" value="Unit"></td>
+                    <td><input type="text" value="Replacement Unit"></td>
+                    <td class="col-action text-center"><button class="btn-del-row" onclick="deleteRow(this)">×</button></td>
+                </tr>
+                <tr>
+                    <td class="text-center row-num">4</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text" class="text-center"></td>
+                    <td><input type="text" class="text-center"></td>
+                    <td><input type="text"></td>
+                    <td class="col-action text-center"><button class="btn-del-row" onclick="deleteRow(this)">×</button></td>
+                </tr>
+                <tr>
+                    <td class="text-center row-num">5</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text" class="text-center"></td>
+                    <td><input type="text" class="text-center"></td>
+                    <td><input type="text"></td>
+                    <td class="col-action text-center"><button class="btn-del-row" onclick="deleteRow(this)">×</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn-add-row" onclick="addRow()">+ Tambah Baris Barang</button>
+
+        <!-- Notes / Remarks -->
+        <div class="notes-section">
+            <label>Catatan Pengiriman / Keterangan Tambahan:</label>
+            <textarea rows="2" placeholder="Tuliskan instruksi penanganan khusus atau catatan pengiriman di sini..."></textarea>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures-grid">
+            <div class="sig-box">
+                <div class="sig-title">Pengirim / Logistik</div>
+                <div class="sig-space"></div>
+                <input type="text" class="sig-name-input" placeholder="( Nama & Tanda Tangan )">
+            </div>
+            <div class="sig-box">
+                <div class="sig-title">Pengemudi / Ekspedisi</div>
+                <div class="sig-space"></div>
+                <input type="text" class="sig-name-input" placeholder="( Nama & Tanda Tangan )">
+            </div>
+            <div class="sig-box">
+                <div class="sig-title">Mengetahui / Supervisor</div>
+                <div class="sig-space"></div>
+                <input type="text" class="sig-name-input" placeholder="( Nama & Tanda Tangan )">
+            </div>
+            <div class="sig-box">
+                <div class="sig-title">Penerima Barang</div>
+                <div class="sig-space"></div>
+                <input type="text" class="sig-name-input" placeholder="( Nama, Tgl & Stempel )">
+            </div>
+        </div>
+
+        <!-- Footer Terms -->
+        <div class="footer-terms">
+            <strong>Syarat & Ketentuan Penerimaan Barang:</strong>
+            <ol>
+                <li>Barang yang dikirim telah diperiksa dan dalam kondisi baik serta lengkap sesuai spesifikasi.</li>
+                <li>Penerima wajib melakukan pemeriksaan fisik dan jumlah barang saat penerimaan dilakukan bersama pengemudi.</li>
+                <li>Klaim atas kerusakan/kekurangan barang harus dicantumkan pada Surat Jalan ini dan dilaporkan maksimal 1x24 jam.</li>
+                <li>Surat Jalan ini merupakan bukti resmi penerimaan barang PT LG ELEKTRONIK SERVICE INDONESIA.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Set today's date default
+        document.getElementById('delivery-date').valueAsDate = new Date();
+
+        function updateRowNumbers() {
+            const rows = document.querySelectorAll('#itemsTable tbody tr');
+            rows.forEach((row, index) => {
+                row.querySelector('.row-num').textContent = index + 1;
+            });
+        }
+
+        function addRow() {
+            const tbody = document.querySelector('#itemsTable tbody');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="text-center row-num"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text" class="text-center"></td>
+                <td><input type="text" class="text-center"></td>
+                <td><input type="text"></td>
+                <td class="col-action text-center"><button class="btn-del-row" onclick="deleteRow(this)">×</button></td>
+            `;
+            tbody.appendChild(tr);
+            updateRowNumbers();
+        }
+
+        function deleteRow(btn) {
+            const tbody = document.querySelector('#itemsTable tbody');
+            if (tbody.children.length > 1) {
+                btn.closest('tr').remove();
+                updateRowNumbers();
+            } else {
+                alert('Minimal harus ada 1 baris barang.');
+            }
+        }
+
+        function resetForm() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan/mereset formulir ini?')) {
+                const inputs = document.querySelectorAll('.page input[type="text"], .page textarea');
+                inputs.forEach(input => input.value = '');
+            }
+        }
+    </script>
+</body>
+</html>
